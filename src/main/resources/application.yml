@@ -1,0 +1,32 @@
+server:
+  port: 8080
+
+spring:
+  application:
+  name: gateway
+  datasource:
+    url: ${DB_URL:jdbc:postgresql://localhost:5432/gateway}
+    username: ${DB_USERNAME:gatewayapp}
+    password: ${DB_PASSWORD}
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: none
+    show-sql: false
+    open-in-view: false
+  hikari:
+    minimum-idle: 2
+    maximum-pool-size: 10
+    connection-timeout: 30000
+    idle-timeout: 600000
+    max-lifetime: 1800000
+  liquibase:
+    enabled: true
+    default-schema: public
+    change-log: classpath:db/changelog/changelog.yml
+
+jwt:
+  secret: ${JWT_SECRET:lGRHnCt1LOLAnZr9lNm+p3tU+jODMxG3ZRXXWFejw9g6kn/0e9OMS4JBqv0tTxBG1zZQHhBKmTBX0ru/b30FnA==}
+  expiration: ${JWT_EXPIRATION:3600} # in seconds
+  refresh-token-expiration: ${JWT_REFRESH_EXPIRATION:86400} # in seconds
+  issuer: ${JWT_ISSUER:gatewayapp}

@@ -1,0 +1,10 @@
+databaseChangeLog:
+  - include:
+      file: schema/1_create_sequence.yml
+      relativeToChangelogFile: true
+  - include:
+      file: schema/2_create_user_table.yml
+      relativeToChangelogFile: true
+  - include:
+      file: schema/3_create_refresh_token_table.yml
+      relativeToChangelogFile: true

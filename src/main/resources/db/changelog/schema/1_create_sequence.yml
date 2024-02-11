@@ -1,0 +1,14 @@
+databaseChangeLog:
+  - changeSet:
+      id: createSequence-example
+      author: liquibase-gatewayapp
+      changes:
+        - createSequence:
+            cacheSize: 371717
+            cycle: false
+            dataType: bigint
+            incrementBy: 1
+            minValue: 1
+            schemaName: public
+            sequenceName: seq_user_id
+            startValue: 1

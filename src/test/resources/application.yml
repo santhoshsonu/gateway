@@ -1,0 +1,20 @@
+spring:
+  profiles:
+    active: test
+  datasource:
+    url: jdbc:h2:mem:testdb;DB_CLOSE_DELAY=-1;MODE=POSTGRESQL
+    username: sa
+    password:
+    driver-class-name: org.h2.Driver
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    show-sql: true
+  liquibase:
+    enabled: true
+    change-log: classpath:db/changelog/changelog.yml
+
+jwt:
+  secret: asdakjsfbkafbwkjfbkwfbkqjwbkjqjbfqwbkf/asda2asdadad35135asdggb
+  expiration: 300 # in seconds
+  refresh-token-expiration: 3600 # in seconds
+  issuer: gatewayapp-test
