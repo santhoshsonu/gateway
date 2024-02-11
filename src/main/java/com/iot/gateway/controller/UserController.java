@@ -36,4 +36,9 @@ public class UserController {
   public ResponseEntity<User> getProfile() {
     return ResponseEntity.ok(userService.getProfile());
   }
+
+  @PutMapping("/update")
+  public ResponseEntity<User> updateUser(@RequestBody User user) {
+    return ResponseEntity.ok(userService.updateUser(user));
+  }
 }

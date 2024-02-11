@@ -20,15 +20,12 @@ public class UserMapper {
   }
 
   public static UserEntity toUserEntity(User user) {
-    final UserEntity entity = new UserEntity().setEmail(user.getEmail());
+    final UserEntity entity = new UserEntity().setEmail(user.getEmail()).setRole(user.getRole());
     updateEntity(user, entity);
     return entity;
   }
 
   public static void updateEntity(User user, UserEntity entity) {
-    entity
-        .setFirstname(user.getFirstname())
-        .setLastname(user.getLastname())
-        .setRole(user.getRole());
+    entity.setFirstname(user.getFirstname()).setLastname(user.getLastname());
   }
 }

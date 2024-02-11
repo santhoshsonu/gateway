@@ -1,6 +1,5 @@
 package com.iot.gateway.entity;
 
-import com.iot.gateway.auth.Role;
 import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.Accessors;
@@ -29,9 +28,9 @@ public class UserEntity {
   private String lastname;
 
   @Column(name = "password")
+  @ToString.Exclude
   private String password;
 
-  @Enumerated(EnumType.STRING)
   @Column(name = "role")
-  private Role role;
+  private String role;
 }

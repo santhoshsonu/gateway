@@ -77,9 +77,11 @@ public class AuthService {
 
   public void logout() {
     Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-    if (authentication != null) {
-      final UserDetailsImpl userDetails = (UserDetailsImpl) authentication.getPrincipal();
-      refreshTokenService.deleteRefreshToken(userDetails.getUsername());
+    if (authentication != null && authentication.isAuthenticated()) {
+      var principal = authentication.getPrincipal();
+      if (principal instanceof UserDetailsImpl userDetails) {
+        refreshTokenService.deleteRefreshToken(userDetails.getUsername());
+      }
     }
   }
 }

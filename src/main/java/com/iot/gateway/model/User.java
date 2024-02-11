@@ -1,7 +1,6 @@
 package com.iot.gateway.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.iot.gateway.auth.Role;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotNull;
 import lombok.*;
@@ -26,10 +25,14 @@ public class User {
   private String lastname;
 
   @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
-  @NotNull(message = "password must not be null")
+  @NotNull(message = "password must not be null", groups = ValidationGroups.Create.class)
   @ToString.Exclude
   private String password;
 
   @NotNull(message = "role must not be null")
-  private Role role;
+  private String role;
+
+  public interface ValidationGroups {
+    interface Create {}
+  }
 }
