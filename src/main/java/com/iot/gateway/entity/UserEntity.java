@@ -3,6 +3,8 @@ package com.iot.gateway.entity;
 import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.Accessors;
+import org.hibernate.annotations.Cache;
+import org.hibernate.annotations.CacheConcurrencyStrategy;
 
 @Getter
 @Setter
@@ -12,6 +14,8 @@ import lombok.experimental.Accessors;
 @Entity(name = "users")
 @Table(name = "users")
 @SequenceGenerator(name = "user_seq_generator", sequenceName = "seq_user_id", allocationSize = 1)
+@Cacheable
+@Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
 public class UserEntity {
   @Id
   @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "user_seq_generator")

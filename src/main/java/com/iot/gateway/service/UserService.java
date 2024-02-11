@@ -16,6 +16,7 @@ import jakarta.validation.groups.Default;
 import java.util.List;
 import java.util.Map;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -32,6 +33,7 @@ public class UserService {
 
   private final PasswordEncoder passwordEncoder;
 
+  @Autowired
   public UserService(
       UserRepository userRepository, GenericValidator validator, PasswordEncoder passwordEncoder) {
     this.userRepository = userRepository;

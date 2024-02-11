@@ -17,6 +17,7 @@
         <java.version>17</java.version>
         <hikaricp.version>5.0.1</hikaricp.version>
         <jta.atomikos.version>2.7.18</jta.atomikos.version>
+        <hibernate-jcache.version>6.4.4.Final</hibernate-jcache.version>
         <jjwt.version>0.12.5</jjwt.version>
     </properties>
     <dependencies>
@@ -52,6 +53,17 @@
         <dependency>
             <groupId>org.liquibase</groupId>
             <artifactId>liquibase-core</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.hibernate.orm</groupId>
+            <artifactId>hibernate-jcache</artifactId>
+            <version>${hibernate-jcache.version}</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.ehcache/ehcache -->
+        <dependency>
+            <groupId>org.ehcache</groupId>
+            <artifactId>ehcache</artifactId>
+            <version>${ehcache3.version}</version>
         </dependency>
 
         <!-- SECURITY -->

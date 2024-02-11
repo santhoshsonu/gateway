@@ -12,6 +12,7 @@ import com.iot.gateway.security.services.RefreshTokenService;
 import com.iot.gateway.security.services.UserDetailsImpl;
 import com.iot.gateway.validator.GenericValidator;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -28,6 +29,7 @@ public class AuthService {
   private final RefreshTokenService refreshTokenService;
   private final GenericValidator validator;
 
+  @Autowired
   public AuthService(
       AuthenticationManager authenticationManager,
       JwtUtils jwtUtils,

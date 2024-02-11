@@ -14,6 +14,12 @@ spring:
       ddl-auto: none
     show-sql: false
     open-in-view: false
+    properties:
+      hibernate:
+        cache:
+          use_second_level_cache: true
+          use_query_cache: true
+          region.factory_class: org.hibernate.cache.jcache.internal.JCacheRegionFactory
   hikari:
     minimum-idle: 2
     maximum-pool-size: 10
@@ -24,6 +30,11 @@ spring:
     enabled: true
     default-schema: public
     change-log: classpath:db/changelog/changelog.yml
+
+# JCache provider
+javax:
+  cache:
+    provider: org.ehcache.jsr107.EhcacheCachingProvider
 
 jwt:
   secret: ${JWT_SECRET:lGRHnCt1LOLAnZr9lNm+p3tU+jODMxG3ZRXXWFejw9g6kn/0e9OMS4JBqv0tTxBG1zZQHhBKmTBX0ru/b30FnA==}

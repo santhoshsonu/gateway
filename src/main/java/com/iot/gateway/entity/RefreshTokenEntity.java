@@ -5,12 +5,16 @@ import java.time.Instant;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
+import org.hibernate.annotations.Cache;
+import org.hibernate.annotations.CacheConcurrencyStrategy;
 import org.hibernate.annotations.CreationTimestamp;
 
 @Data
 @NoArgsConstructor
 @ToString
 @Entity(name = "refresh_token")
+@Cacheable
+@Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
 public class RefreshTokenEntity {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
